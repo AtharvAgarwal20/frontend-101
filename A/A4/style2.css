@@ -1,0 +1,192 @@
+body {
+    margin: 0;
+    background-color: #2B292B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#hamburger {
+    background-color: transparent;
+    border: none;
+    pointer-events: none;
+}
+
+@keyframes circleDraw {
+    0% {
+        stroke-dashoffset: 1256;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes circleUndraw {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: 1256;
+    }
+}
+
+svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: background-color 50ms linear 300ms;
+}
+
+svg circle {
+    fill: transparent;
+    stroke: white;
+    stroke-width: 3px;
+    cx: 50vw;
+    cy: 50vh;
+    stroke-dashoffset: 1256;
+    stroke-dasharray: 1256;
+    transform-origin: center;
+    transform: rotateX(180deg);
+    animation: circleUndraw 200ms linear forwards;
+}
+
+circle {
+    pointer-events: all;
+}
+
+#hamburger:hover circle {
+    animation-name: circleDraw;
+    animation-duration: 200ms;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-delay: 300ms;
+    cursor: pointer;
+}
+
+
+
+.line1,
+.line2,
+.line3 {
+    width: 250px;
+    border: 1px solid #A81F68;
+    transition: border 300ms linear;
+    z-index: 100;
+    transform-origin: center;
+}
+
+.selectionArea {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: all;
+}
+
+.lines-container {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@keyframes line2A {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-30px);
+    }
+
+    100% {
+        transform: translateX(75px);
+    }
+}
+
+@keyframes line2B {
+    0% {
+        transform: translateX(75px);
+    }
+
+    50% {
+        transform: translateX(-30px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes line1A {
+    0% {
+        transform: rotate(0deg) translateY(0px);
+    }
+
+    60% {
+        transform: translateY(0px) rotate(10deg);
+    }
+
+    100% {
+        transform: translateY(50px) rotate(-45deg);
+    }
+}
+
+@keyframes line3A {
+    0% {
+        transform: rotate(0deg) translateY(0px);
+    }
+
+    60% {
+        transform: translateY(0px) rotate(-10deg);
+    }
+
+    100% {
+        transform: translateY(-50px) rotate(45deg);
+    }
+}
+
+.line2 {
+    animation: line2B 300ms linear forwards;
+    /* transition: opacity 50ms linear 300ms; */
+}
+
+#hamburger:hover .line2 {
+    animation-name: line2A;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transition: opacity 50ms linear 300ms;
+}
+
+
+#hamburger:hover .line1 {
+    border: 1px solid white;
+    animation: line1A 300ms ease-in-out forwards;
+}
+
+.line1 {
+    animation: line1B 300ms ease-in-out forwards;
+}
+
+.line3 {
+    animation: line3B 300ms ease-in-out forwards;
+}
+
+#hamburger:hover .line3 {
+    border: 1px solid white;
+    animation: line3A 300ms ease-in-out forwards;
+}
+
+#hamburger:hover svg {
+    background-color: #A81F68;
+}

@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+button {
+    background-color: red;
+    font-size: 32px;
+    height: 60px;
+    width: 120px;
+    border: 2px solid black;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.switch-container {
+    perspective: 200px;
+}
+
+.switch {
+    transform-style: preserve-3d;
+    display: flex;
+    transform-origin: left;
+    transform: rotateY(-30deg);
+    transition: transform 150ms ease-in-out;
+    pointer-events: none;
+}
+
+.switch span {
+    background-color: red;
+    height: 56px;
+    width: 75.36px;
+    border: 2px solid black;
+    transform-origin: left;
+    transform: rotateY(90deg);
+}
+
+.switch:hover {
+    transform: rotateY(0deg);
+}
+
+.switch button {
+    pointer-events: auto;
+}
+
+
+
+.box-container {
+    perspective: 3000px;
+}
+
+.box {
+    transform-style: preserve-3d;
+    transform: rotateX(-15deg) rotateY(-25deg);
+    transition: transform 300ms linear;
+    pointer-events: none;
+}
+
+.box button {
+    transform: translateZ(30px);
+    pointer-events: auto;
+}
+
+.box span {
+    background-color: red;
+    height: 56px;
+    border: 2px solid black;
+    position: absolute;
+}
+
+.top,
+.bottom {
+    width: 116px;
+}
+
+.left,
+.right {
+    width: 56px;
+}
+
+.top {
+    transform-origin: top;
+    transform: translateX(-120px) translateZ(30px) rotateX(-90deg);
+    z-index: -1;
+    transition: transform 300ms linear;
+}
+
+.bottom {
+    transform-origin: bottom;
+    transform: translateX(-120px) translateZ(30px) rotateX(90deg);
+    transition: transform 300ms linear;
+}
+
+.left {
+    transform-origin: left;
+    transform: translateX(-120px) translateZ(30px) rotateY(90deg);
+    transition: transform 300ms linear;
+}
+
+.right {
+    transform-origin: left;
+    transform: translateZ(30px) rotateY(90deg);
+    transition: transform 300ms linear;
+}
+
+.box:hover {
+    transform: translateZ(-40px);
+}
+
+.box:hover .top {
+    transform: translateX(-120px) translateZ(30px) rotateX(-180deg);
+}
+
+.box:hover .bottom {
+    transform: translateX(-120px) translateZ(30px) rotateX(180deg);
+}
+
+.box:hover .left {
+    transform: translateX(-120px) translateZ(30px) rotateY(180deg);
+}
+
+.box:hover .right {
+    transform: translateZ(30px) rotateY(0deg);
+}

@@ -1,0 +1,203 @@
+body {
+    background-color: #008000;
+    margin: 0;
+}
+
+div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+span {
+    display: flex;
+    background-color: white;
+    height: 30vh;
+    width: 20vw;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 64px;
+}
+
+@keyframes slideRightD {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(20vw - 80px));
+    }
+}
+
+@keyframes slideLeftD {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(80px - 20vw));
+    }
+
+}
+
+@keyframes slideRightC {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(28vw - 80px));
+    }
+}
+
+@keyframes slideLeftC {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(80px - 28vw));
+    }
+
+}
+
+@keyframes slideRightB {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(36vw - 60px));
+    }
+}
+
+@keyframes slideLeftB {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(60px - 36vw));
+    }
+
+}
+
+@keyframes slideRightA {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(40vw - 40px));
+    }
+}
+
+@keyframes slideLeftA {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(40px - 40vw));
+    }
+
+}
+
+@media(min-width:1080px) {
+    span:nth-of-type(8n) {
+        margin-right: auto;
+    }
+
+    span:nth-of-type(8n+1) {
+        margin-left: auto;
+    }
+
+    span:nth-child(n+5):nth-child(-n+8) {
+        animation: slideRightD 1s ease-in-out 0s infinite alternate none;
+    }
+
+    span:nth-child(n+1):nth-child(-n+4),
+    span:nth-child(n+9):nth-child(-n+12) {
+        animation: slideLeftD 1s ease-in-out 0s infinite alternate none;
+    }
+}
+
+
+@media(min-width:850px) and (max-width:1080px) {
+    span {
+        width: 24vw;
+    }
+
+    span:nth-of-type(6n) {
+        margin-right: auto;
+    }
+
+    span:nth-of-type(6n+1) {
+        margin-left: auto;
+    }
+
+    span:nth-child(n+1):nth-child(-n+3),
+    span:nth-child(n+7):nth-child(-n+9) {
+        animation: slideLeftC 1s ease-in-out 0s infinite alternate none;
+    }
+
+    span:nth-child(n+4):nth-child(-n+6),
+    span:nth-child(n+10):nth-child(-n+12) {
+        animation: slideRightC 1s ease-in-out 0s infinite alternate none;
+    }
+}
+
+@media(min-width:670px) and (max-width:850px) {
+    span {
+        width: 32vw;
+    }
+
+    span:nth-of-type(4n) {
+        margin-right: auto;
+    }
+
+    span:nth-of-type(4n+1) {
+        margin-left: auto;
+    }
+
+    span:nth-child(n+1):nth-child(-n+2),
+    span:nth-child(n+5):nth-child(-n+6),
+    span:nth-child(n+9):nth-child(-n+10) {
+        animation: slideLeftB 1s ease-in-out 0s infinite alternate none;
+    }
+
+    span:nth-child(n+3):nth-child(-n+4),
+    span:nth-child(n+7):nth-child(-n+8),
+    span:nth-child(n+11):nth-child(-n+12) {
+        animation: slideRightB 1s ease-in-out 0s infinite alternate none;
+    }
+}
+
+@media (min-width:320px) and (max-width:670px) {
+    span {
+        width: 60vw;
+    }
+
+    span:nth-of-type(2n) {
+        margin-right: auto;
+    }
+
+    span:nth-of-type(2n+1) {
+        margin-left: auto;
+    }
+
+    span:nth-child(even) {
+        animation: slideRightA 1s ease-in-out 0s infinite alternate none;
+    }
+
+    span:nth-child(odd) {
+        animation: slideLeftA 1s ease-in-out 0s infinite alternate none;
+    }
+}
+
+@media(max-width:320px) {
+    span {
+        width: 90vw;
+    }
+}

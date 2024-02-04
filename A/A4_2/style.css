@@ -1,0 +1,241 @@
+:root {
+    --thickness: 3px;
+    --size: 100px;
+}
+
+body {
+    margin: 0;
+    background-color: #2B292B;
+    height: 100vh;
+    width: 100vw;
+}
+
+#hamburger {
+    background-color: transparent;
+    border: none;
+    width: calc(var(--size) + var(--thickness));
+    height: calc(var(--size) + var(--thickness));
+    pointer-events: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes circleDraw {
+    0% {
+        stroke-dashoffset: calc(var(--size)*3.14);
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes circleUndraw {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: calc(var(--size)*3.14);
+    }
+}
+
+svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: background-color 50ms linear 300ms;
+}
+
+svg circle {
+    fill: transparent;
+    stroke: white;
+    stroke-width: var(--thickness);
+    cx: calc(0.5*(var(--size) + var(--thickness)));
+    cy: calc(100vh - 0.5*(var(--size) + var(--thickness)));
+    r: calc(var(--size)/2);
+    stroke-dashoffset: calc(var(--size)*3.14);
+    stroke-dasharray: calc(var(--size)*3.14);
+    transform-origin: center;
+    transform: rotateX(180deg);
+    animation: circleUndraw 200ms linear forwards;
+    r
+}
+
+circle {
+    pointer-events: all;
+}
+
+#hamburger:hover circle {
+    animation-name: circleDraw;
+    animation-duration: 200ms;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-delay: 300ms;
+    cursor: pointer;
+}
+
+
+
+.line1,
+.line2,
+.line3 {
+    width: calc(0.625 * var(--size));
+    border: calc(var(--thickness)/3) solid #A81F68;
+    transition: border 300ms linear 250ms;
+    z-index: 100;
+    transform-origin: center;
+}
+
+.selectionArea {
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: all;
+}
+
+.lines-container {
+    height: calc(0.25 * var(--size));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@keyframes line2A {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(calc(-0.075 * var(--size)));
+    }
+
+    100% {
+        transform: translateX(calc((var(--size) * 0.5) - (var(--size) * 0.125)));
+    }
+}
+
+@keyframes line2B {
+    0% {
+        transform: translateX(calc((var(--size) * 0.5) - (var(--size) * 0.125)));
+    }
+
+    50% {
+        transform: translateX(calc(-0.075 * var(--size)));
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes line1A {
+    0% {
+        transform: rotate(0deg) translateY(0px);
+    }
+
+    60% {
+        transform: translateY(0px) rotate(10deg);
+    }
+
+    100% {
+        transform: translateY(calc(0.125 * var(--size))) rotate(-45deg);
+    }
+}
+
+@keyframes line3A {
+    0% {
+        transform: rotate(0deg) translateY(0px);
+    }
+
+    60% {
+        transform: translateY(0px) rotate(-10deg);
+    }
+
+    100% {
+        transform: translateY(calc(-0.125 * var(--size))) rotate(45deg);
+    }
+}
+
+@keyframes line1B {
+    0% {
+        transform: translateY(calc(0.125 * var(--size))) rotate(-45deg);
+    }
+
+    40% {
+        transform: translateY(0px) rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(0deg) translateY(0px);
+    }
+}
+
+@keyframes line3B {
+    0% {
+        transform: translateY(calc(-0.125 * var(--size))) rotate(45deg);
+    }
+
+    40% {
+        transform: translateY(0px) rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(0deg) translateY(0px);
+    }
+}
+
+#hamburger:hover .line2 {
+    opacity: 0;
+    transition: opacity 50ms linear 300ms;
+}
+
+
+#hamburger:hover .line1 {
+    border: calc(var(--thickness)/3) solid white;
+    transition: border 300ms linear;
+}
+
+#hamburger:hover .line3 {
+    border: calc(var(--thickness)/3) solid white;
+    transition: border 300ms linear;
+}
+
+#hamburger:hover svg {
+    background-color: #A81F68;
+}
+
+
+
+/* ANIMATION CLASSES */
+
+.line1Hover {
+    animation: line1A 300ms ease-in-out forwards;
+}
+
+.line1Unhover {
+    animation: line1B 300ms ease-in-out forwards;
+}
+
+.line3Hover {
+    animation: line3A 300ms ease-in-out forwards;
+}
+
+.line3Unhover {
+    animation: line3B 300ms ease-in-out forwards;
+}
+
+.line2Hover {
+    animation: line2A 300ms ease-in-out forwards;
+}
+
+.line2Unhover {
+    animation: line2B 300ms ease-in-out forwards;
+}

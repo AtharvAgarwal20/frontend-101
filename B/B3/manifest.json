@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "DVM Website Identifier",
+    "version": "1.0",
+    "description": "Logs hello <website name> on DVM websites",
+    "action": {
+        "default_popup": "dvm.html",
+        "default_icon": "dvm_icon.png"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "dvm.js"
+            ],
+            "matches": [
+                "https://www.bits-oasis.org/*",
+                "https://bits-apogee.org/*",
+                "https://www.bitsbosm.org/*",
+                "https://bits-dvm.org/*"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,76 @@
+:root {
+    --emerald: #44CF6C;
+    --mayaBlue: #51BBFE;
+}
+
+body {
+    background-color: var(--mayaBlue);
+    font-family: 'Noto Serif', serif;
+}
+
+#content {
+    display: none;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#error {
+    display: none;
+    text-align: center;
+}
+
+#avatar {
+    border-radius: 0.5em;
+}
+
+input[type='text'] {
+    height: 1.5em;
+    border-radius: 1em 0 0 1em;
+    border: 0.19em solid black;
+    border-right: none;
+    padding-left: 1em;
+    transform: translateX(0.15em);
+    background-color: white;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button[type='submit']:hover svg {
+    fill: black;
+}
+
+button[type='submit']:hover {
+    cursor: pointer;
+    background-color: var(--emerald);
+}
+
+button[type='submit'] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 4em;
+    width: 4em;
+    border-radius: 50%;
+    border: 0.19em solid black;
+    background-color: black;
+    transform: translateX(-0.15em);
+    transition: background-color 150ms linear;
+}
+
+svg {
+    width: 2.25em;
+    height: 2.25em;
+    fill: white;
+    transition: fill 150ms linear;
+}
+
+input[type='text']:focus {
+    outline: none;
+    border: 0.19em solid black;
+    border-right: none;
+}
