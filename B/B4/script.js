@@ -37,9 +37,8 @@ if (totalCards % cardsPerPage === 0) {
     for (let set of sets) {
         for (let l = 1; l <= cardsPerPage; l++) {
             let newCard = document.createElement('div')
-            let cardContent = document.createTextNode(k)
+            newCard.innerText = k
             k++
-            newCard.appendChild(cardContent)
             newCard.classList.add('card')
             if (cardsPerPage <= 4) {
                 newCard.style.width = '20vw'
@@ -58,9 +57,8 @@ else if (totalCards % cardsPerPage !== 0) {
     for (let l = 0; l <= sets.length - 2; l++) {
         for (let m = 1; m <= cardsPerPage; m++) {
             let newCard = document.createElement('div')
-            let cardContent = document.createTextNode(k)
+            newCard.innerText = k
             k++
-            newCard.appendChild(cardContent)
             newCard.classList.add('card')
             if (cardsPerPage <= 4) {
                 newCard.style.width = '20vw'
@@ -75,9 +73,8 @@ else if (totalCards % cardsPerPage !== 0) {
     }
     for (let n = 1; n <= totalCards % cardsPerPage; n++) {
         let endCard = document.createElement('div')
-        let cardContent2 = document.createTextNode(k)
+        endCard.innerText = k
         k++
-        endCard.appendChild(cardContent2)
         endCard.classList.add('card')
         if (cardsPerPage <= 4) {
             endCard.style.width = '20vw'
