@@ -11,6 +11,6 @@ DVM Training tasks
 
 1. Set B
     - Task B1: [Multiple Select](https://atharvagarwal20.github.io/frontend-101/B/B1/index.html)
-    - Task B2: [Multiple Select](https://atharvagarwal20.github.io/frontend-101/B/B2/index.html)
+    - Task B2: [Github Profile Fetcher](https://atharvagarwal20.github.io/frontend-101/B/B2/index.html)
     - Task B3: Extension
-    - Task B4: [Multiple Select](https://atharvagarwal20.github.io/frontend-101/B/B4/index.html)
+    - Task B4: [Custom Carousel](https://atharvagarwal20.github.io/frontend-101/B/B4/index.html)
